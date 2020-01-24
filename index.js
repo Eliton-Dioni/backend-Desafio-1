@@ -17,7 +17,7 @@ app.post("/login", async (req, res) => {
   });
 
   if (isValidUser) {
-    return res.json({ sucess: "Usuário Logado" });
+    return res.json({ success: "Usuário Logado" });
   } else {
     return res.json({ error: "Usuário ou senha incorretos" });
   }
