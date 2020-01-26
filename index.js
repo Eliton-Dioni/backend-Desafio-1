@@ -1,13 +1,13 @@
-const axios = require('axios');
-const express = require('express');
+const axios = require("axios");
+const express = require("express");
 
 const app = express();
 app.use(express.json());
 
-app.post('/login', async (req, res) =>{
+app.post("/login", async (req, res) => {
   const { user, password } = req.body;
-  const { data: users } = await axios.get('https://api.myjson.com/bins/kj4aq');
-  
+  const { data: users } = await axios.get("https://api.myjson.com/bins/kj4aq");
+
   let isValidUser = false;
 
   users.forEach(dataUser => {
@@ -16,10 +16,10 @@ app.post('/login', async (req, res) =>{
     }
   });
 
-  if(isValidUser) {
-    return res.json({ sucess: 'Usuário Logado' });
+  if (isValidUser) {
+    return res.json({ success: "Usuário Logado" });
   } else {
-    return res.json({ error: 'Usuário ou senha incorretos' });
+    return res.json({ error: "Usuário ou senha incorretos" });
   }
 });
 
